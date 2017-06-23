@@ -19,12 +19,14 @@ public class Book {
 	@Column(name = "book_id")
 	private int id;
 
-	
 	@Column(name = "book_name")
 	private String name;
 
-	@ManyToOne(cascade = CascadeType.ALL)// Mean Many Book with One Book Category
-	@JoinColumn(name = "book_category_id")// Create field book_category_id in this table which the foreign key from
+	@ManyToOne(cascade = CascadeType.ALL) // Mean Many Book with One Book
+											// Category
+	@JoinColumn(name = "book_category_id") // Create field book_category_id in
+											// this table which the foreign key
+											// from
 	// Book_category Table
 	private BookCategory bookCategory;
 
@@ -39,5 +41,42 @@ public class Book {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "author_id")
 	private Author author;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public BookCategory getBookCategory() {
+		return bookCategory;
+	}
+
+	public void setBookCategory(BookCategory bookCategory) {
+		this.bookCategory = bookCategory;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", name=" + name + ", bookCategory=" + bookCategory + ", author=" + author + "]";
+	}
 
 }
