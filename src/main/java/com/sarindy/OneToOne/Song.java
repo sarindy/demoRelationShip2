@@ -18,12 +18,13 @@ public class Song {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "song_id")
-
 	private int id;
-	@Column(name = "song_name")
 
+	
+	@Column(name = "song_name")
 	private String name;
 
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "song_detail")
 	private SongDetail songDetail;

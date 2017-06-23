@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class SongControllerService {
 
 	@Autowired
-	private SongServiceImpl songService;
+	private SongRepo songService;
 	
 	@RequestMapping(value = "/addSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void addSong(@RequestBody Song song) {
 
-		songService.addSong(song);
+		songService.save(song);
 	}
 
 	/*
